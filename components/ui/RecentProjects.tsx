@@ -11,9 +11,10 @@ const RecentProjects = () => {
               <span className="text-orange">recent projects</span>
           </h1>
           <div className="flex flex-wrap justify-center items-center gap-x-24 gap-y-8 mt-10 p-4">
-              {projects.map((item) => (
-                  <div key={item.id} className="text-white sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem] flex sm:w-[470px] w-[80vw] items-center justify-center">
-                      <PinContainer title={item.link} href={item.link}>
+        {projects.map((item) => (
+                
+          <div key={item.id} className="text-white sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem] flex sm:w-[470px] w-[80vw] items-center justify-center">
+                      <PinContainer href={item.link} title={item.link}>
                           <div className="relative flex items-center justify-center sm:w-[470px] sm:h-[40vh] h-[30vh] w-[80vw] overflow-hidden mb-10">
                 <div
                   className="relative w-full h-full overflow-hidden lg:rounded-3xl"
@@ -55,12 +56,12 @@ const RecentProjects = () => {
                   ))}
                 </div>
 
-                <div className="flex justify-center items-center">
+                <a href={item.link} className="flex justify-center items-center">
                   <p className="flex lg:text-xl md:text-xs text-sm text-orange">
                     Check Live Site
                   </p>
                   <FaLocationArrow className="ms-3" color="#f7c69f" />
-                </div>
+                </a>
               </div>
                      </PinContainer>
                   </div>
