@@ -1,4 +1,4 @@
-import { companies, testimonials } from '@/data'
+import {  testimonials } from '@/data'
 import React from 'react'
 import { InfiniteMovingCards } from './ui/InfiniteCards'
 
