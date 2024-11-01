@@ -9,7 +9,18 @@ import {
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
-export const FloatingNav = ({
+interface NavItem {
+  name: string;
+  link: string;
+  icon?: JSX.Element;
+}
+
+interface FloatingNavProps {
+  navItems: NavItem[];
+  className?: string;
+}
+
+export const  FloatingNav: React.FC<FloatingNavProps> = ({
   navItems,
   className,
 }: {
@@ -27,7 +38,7 @@ export const FloatingNav = ({
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     // Check if current is not undefined and is a number
     if (typeof current === "number") {
-      let direction = current! - scrollYProgress.getPrevious()!;
+      const direction = current! - scrollYProgress.getPrevious()!;
 
       if (scrollYProgress.get() < 0.05) {
         setVisible(false);
@@ -60,7 +71,7 @@ export const FloatingNav = ({
           className
         )}
       >
-        {navItems.map((navItem: any, idx: number) => (
+        {navItems.map((navItem, idx: number) => (
           <Link
             key={`link=${idx}`}
             href={navItem.link}
